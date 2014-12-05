@@ -54,26 +54,19 @@ public class StandaloneConverter extends SharpenConversion {
 		_parser.setCompilerOptions(options);
 	}
 	
-	public CSCompilationUnit run() {
+	public CSCompilationUnit run() throws IOException {
 		if (null == _writer || null == _source) {
 			throw new IllegalStateException("source and writer must be set");
 		}
-		
-		try {
-			File sourceFile = new File(_source);
-			List<String> sourcefilePaths = new ArrayList<String>(); 
-			sourcefilePaths.add(sourceFile.getPath());
-			String []sourcefilearr = new String[sourcefilePaths.size()];
-			sourcefilePaths.toArray(sourcefilearr);
-			_parser.setEnvironment(null,sourcefilearr,
-					null, true);
-			_parser.setSource(ReadFileToCharArray(_source));
-		} catch (IOException e) {
-			System.out.println("Error in conversion");
-			e.printStackTrace();
-		}
+		File sourceFile = new File(_source);
+		List<String> sourcefilePaths = new ArrayList<String>(); 
+		sourcefilePaths.add(sourceFile.getPath());
+		String []sourcefilearr = new String[sourcefilePaths.size()];
+		sourcefilePaths.toArray(sourcefilearr);
+		_parser.setEnvironment(null,sourcefilearr,
+				null, true);
+		_parser.setSource(ReadFileToCharArray(_source));
 		_parser.setResolveBindings(true);
-        
         CompilationUnit ast = (CompilationUnit) _parser.createAST(null);
         return run(ast);
 	}
@@ -81,13 +74,9 @@ public class StandaloneConverter extends SharpenConversion {
 	private char[] ReadFileToCharArray(String filePath) throws IOException {
 		StringBuilder fileData = new StringBuilder(1000);
 		BufferedReader reader = new BufferedReader(new FileReader(filePath));
- 
-		char[] buf = new char[10];
-		int numRead = 0;
-		while ((numRead = reader.read(buf)) != -1) {
-			String readData = String.valueOf(buf, 0, numRead);
+		String readData;
+		while ((readData= reader.readLine()) != null) {
 			fileData.append(readData);
-			buf = new char[1024];
 		}
 		reader.close();
 		return  fileData.toString().toCharArray();	
