@@ -1,5 +1,6 @@
 package sharpen.core;
 
+import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import sharpen.core.io.IO;
 
 public class SharpenApplication {
 	private SharpenCommandLine _args;
+	private static final int HELP_SIZE =27;
 
 	public void start(String[] args) throws Exception {
 		try {
@@ -57,73 +59,29 @@ public class SharpenApplication {
     		System.out.println();
     		System.out.println(prop.getProperty("222"));
     		System.out.println();
-    		System.out.println("Valid command line options are as following:");
-    		System.out.println(prop.getProperty("01"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("02"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("03"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("04"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("05"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("06"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("07"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("08"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("09"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("10"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("11"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("12"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("13"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("14"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("15"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("16"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("17"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("18"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("19"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("20"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("21"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("22"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("23"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("24"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("25"));
-    		System.out.println();
-    		System.out.println(prop.getProperty("26"));
-    		System.out.println();
-            System.out.println(prop.getProperty("27"));
-   
+    		System.out.println("Valid command line options are as following. PRESS ENTER TO PROCEED");
+    		
+    		Console console = System.console();
+    	       
+    		for (int i = 1; i <= HELP_SIZE; i++){
+    			String key= Integer.toString(i);
+    			System.out.println();
+    			System.out.println(prop.getProperty(key));
+    			if(i%5 ==0){
+    			    console.readLine();
+    			}
+    		} 
             System.out.println("**************Help End**************************");
-       
   
     	} catch (IOException ex) {
     		ex.printStackTrace();
         } finally{
         	if(input!=null){
-        		try {
-				input.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	        		try {
+					input.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
         	}
         }
 		
