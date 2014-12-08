@@ -12,12 +12,12 @@ public class IntegrationTestCase extends AbstractConversionTestCase {
 		config.mapNamespace("integration\\.namespaceMapping\\.foo", "UbberFoo");
 		
 		runBatchConverterTestCase(config,
-				new TestCaseResource("integration/namespaceMapping/foo/Foo") {
+				new TestCaseResource(projecttempLocation,"integration/namespaceMapping/foo/Foo") {
 					@Override public String targetSimpleName() {
 						return "FooFactory";
 					}
 				},
-				new TestCaseResource("integration/namespaceMapping/bar/FooUsage"));
+				new TestCaseResource(projecttempLocation,"integration/namespaceMapping/bar/FooUsage"));
 	}
 
 }
