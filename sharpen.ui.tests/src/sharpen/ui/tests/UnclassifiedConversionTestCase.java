@@ -31,7 +31,7 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 	@Test
 	public void testHeader() throws Exception {
 		Configuration configuration = getConfiguration();
-		configuration.setHeader(ResourceUtility.getStringContents("resources/header.txt"));
+		configuration.setHeader(ResourceUtility.getStringContents(projecttempLocation + "/resources/header.txt"));
 		
 		runResourceTestCase(configuration, "HeaderSupport");
 	}
@@ -76,12 +76,12 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("StringEmpty");
 	}
 	
-	//@Test
+	@Test
 	public void testEmptyCatch() throws Throwable {
 		runResourceTestCase("Catch1");
 	}
 	
-	//@Test
+	@Test
 	public void testExternalMethodMapping() throws Throwable {
 		String jar = JarUtilities.createJar(BindingTestCaseSubject.class, BindingTestCaseSubject.Foo.class, BindingTestCaseSubject.Baz.class);
 		List<String> classJar = new ArrayList<String>();
@@ -117,10 +117,11 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("IntLiterals1");
 	}
 	
-	//@Test
+	@Test
 	public void testUnsignedRightShift() throws Throwable {
 		runResourceTestCase("UnsignedRightShift");
 	}
+	
 	
 	@Test
 	public void testSimpleNestedInterface() throws Throwable {
@@ -147,11 +148,12 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("Transient1");
 	}
 	
-	//@Test
+	@Test
 	public void testWrapperTypesMethods() throws Throwable {
 		runResourceTestCase("WrapperTypesMethods1");
 	}
 	
+	@Test
 	public void testDeadBranchElimination() throws Throwable {
 		runResourceTestCase("DeadBranchElimination1");
 	}
@@ -161,7 +163,7 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("StaticFinalField1");
 	}
 
-	//@Test
+	@Test
 	public void testStringMethodsInvocation() throws Throwable {
 		runResourceTestCase("StringMethods1");
 	}	
@@ -196,12 +198,12 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("PrintStackTrace1");
 	}
 	
-	//@Test
+	@Test
 	public void testWaitNotify() throws Throwable {
 		runResourceTestCase("WaitNotify1");
 	}
 	
-	//@Test
+	@Test
 	public void testClone() throws Throwable {
 		runResourceTestCase("Clone1");
 	}
@@ -230,8 +232,8 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 	public void testSwitchCase() throws Throwable {
 		runResourceTestCase("SwitchCase1");
 	}
-
-	//@Test
+	
+	@Test
 	public void testCascadingSwitchCase() throws Throwable {
 		runResourceTestCase("SwitchCase2");
 	}
@@ -336,11 +338,11 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("mp/Albatross");
 	}
 
-	//@Test
+	@Test
 	public void testSimpleFields() throws Throwable {
 		runResourceTestCase("Fields1");
 	}
-	//@Test
+	@Test
 	public void testFieldReferences() throws Throwable {
 		runResourceTestCase("Fields2");
 	}
@@ -385,12 +387,13 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("For1");
 	}
 	
-	//@Test
+	@Test
 	public void testSimpleConstString() throws Throwable {
 		runResourceTestCase("ConstString1");
 	}
 	
-	//@Test
+	
+	@Test
 	public void testConstStringWithEscapedChars() throws Throwable {
 		runResourceTestCase("ConstString2");
 	}
@@ -475,7 +478,7 @@ public class UnclassifiedConversionTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("Super1");
 	}
 	
-	//@Test
+	@Test
 	public void testSuperConstructorInvocation() throws Throwable {
 		runResourceTestCase("Super2");
 	}
