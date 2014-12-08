@@ -28,7 +28,7 @@ import org.junit.Test;
 
 public class OrganizeUsingsTestCase extends AbstractConversionTestCase {
 	
-	//@Test
+	@Test
 	public void testGenerics() throws Throwable {
 		runResourceTestCase("Generics");
 	}
@@ -38,7 +38,7 @@ public class OrganizeUsingsTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("SimpleTest");
 	}
 
-	//@Test
+	@Test
 	public void testFullyQualifiedName() throws Throwable {
 		Configuration conf = newOrganizeUsingsConfiguration();
 		conf.addFullyQualifiedTypeName("Test");
@@ -55,12 +55,13 @@ public class OrganizeUsingsTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("deep/tree/NestedType");
 	}
 
-	//@Test
+	@Test
 	public void testNamespaceConflict() throws Throwable {
 		runResourceTestCase("NamespaceConflict");
 	}
 	
-	//@Test
+	
+	@Test
 	public void testMethodNameConflict() throws Throwable {
 		runResourceTestCase("MethodNameConflict");
 	}	
