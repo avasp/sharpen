@@ -39,14 +39,8 @@ public class ResourceUtility {
 		 return new String(encoded);
 	}	
 
-	public static String getResourceUri(String resourceName) {
-		final URL url = ResourceUtility.class.getResource("/" + resourceName);
-		if (null == url) ResourceLoader.resourceNotFound(resourceName);
-		try {
-			return url.toURI().toString();
-		} catch (URISyntaxException e) {
-			throw new RuntimeException(e);
-		}
+	public static String getResourceUri(String resourceName) throws IOException {
+		return getStringContents(resourceName);
 	}
 
 }
