@@ -19,8 +19,8 @@ namespace modifiers
 
 		new public void bar()
 		{
-			// As of today, this will be translated incorrectly to C# (which requires the "base" keyword to qualify fooBar)
-			// but if you write code like this you deserve it :)
+			
+			
 			fooBar = 42;
 		}
 
