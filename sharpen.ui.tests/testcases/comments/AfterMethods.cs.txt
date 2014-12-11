@@ -6,10 +6,10 @@ namespace comments
 		{
 		}
 
-		// end foo
+		
 		public virtual void bar()
 		{
 		}
-		// end bar
+		
 	}
 }
