@@ -2,14 +2,14 @@
 package sharpen.ui.tests;
 
 import sharpen.core.*;
-//import org.junit.Test;
+import org.junit.Test;
 
 public class IntegrationTestCase extends AbstractConversionTestCase {
-	//@Test
+	@Test
 	public void testNamespaceMappingWithTypeRenaming() throws Throwable {
 		final Configuration config = getConfiguration();
 		config.enableOrganizeUsings();
-		config.mapNamespace("integration\\.namespaceMapping\\.foo", "UbberFoo");
+		config.mapNamespace("integration.namespaceMapping.foo", "UbberFoo");
 		
 		runBatchConverterTestCase(config,
 				new TestCaseResource(projecttempLocation,"integration/namespaceMapping/foo/Foo") {
