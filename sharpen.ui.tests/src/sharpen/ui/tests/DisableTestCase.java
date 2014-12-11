@@ -46,7 +46,7 @@ public class DisableTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("disable/DisableInnerClass");
 	}
 	
-	//@Test
+	@Test
 	public void testDisableCompilationUnit() throws Throwable {
 		runResourceTestCase(newConfigWithOrganizeUsings(), "disable/DisableCompilationUnit");
 	}
