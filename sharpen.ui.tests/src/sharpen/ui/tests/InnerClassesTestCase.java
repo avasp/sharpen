@@ -58,17 +58,12 @@ public class InnerClassesTestCase extends AbstractConversionTestCase {
 		runResourceTestCase("AnonymousWithFinalField");
 	}
 	
-	// SHA-75
-	//@Test
-	public void _testGenericAnonymousWithPrivateMethod() throws Throwable {
-		runResourceTestCase("GenericAnonymousWithAdditionalMethods");
-	}
 	
 	@Test
 	public void testAnonymousThis() throws Throwable {
 		runResourceTestCase("AnonymousInnerClass12");
 	}
-	//@Test
+	@Test
 	public void testAnonymousTypeWithCtorArguments() throws Throwable {
 		runResourceTestCase("AnonymousInnerClass13");
 	}
@@ -117,17 +112,6 @@ public class InnerClassesTestCase extends AbstractConversionTestCase {
 	public void testNestedAnonymousInnerClassesAccessingFields() throws Throwable {
 		runResourceTestCase("AnonymousInnerClass3");
 	}
-	
-	@Test
-	public void testNestedAnonymousInnerClasses() throws Throwable {
-		runResourceTestCase("AnonymousInnerClass2");
-	}
-	
-	@Test
-	public void testAnonymousInnerClassImplementingInterface() throws Throwable {
-		runResourceTestCase("AnonymousInnerClass1");
-	}
-	
 	@Override
 	protected void runResourceTestCase(String resourceName) throws IOException {
 		super.runResourceTestCase("innerclasses/" + resourceName);
