@@ -106,7 +106,7 @@ mylabel1_break: ;
 					for (int j = 0; j < 10; j++)
 					{
 					}
-					// no labels here please
+					
 					goto mylabel_continue;
 				}
 			}
@@ -131,7 +131,7 @@ mylabel_break: ;
 					for (int j = 0; j < 10; j++)
 					{
 					}
-					// no labels here please
+					
 					goto mylabel_continue;
 				}
 			}
