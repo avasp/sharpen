@@ -25,7 +25,7 @@ package sharpen.ui.tests;
 
 import static org.junit.Assert.*;
 
-//import org.junit.Test;
+import org.junit.Test;
 
 import java.io.*;
 
@@ -33,7 +33,7 @@ import java.io.*;
 
 public class ProblemsOutputTestCase extends AbstractConversionTestCase {
 	
-	//@Test
+	@Test
 	public void testProblemsGoToStderr() throws Throwable {		
 		final ByteArrayOutputStream stderr = new ByteArrayOutputStream();
 		
@@ -41,15 +41,17 @@ public class ProblemsOutputTestCase extends AbstractConversionTestCase {
 		try {
 			System.setErr(new PrintStream(stderr));
 			
-			final String resourcePath = "/TestProject/src/problems/Spam.java";			
+			String resourcePath = projecttempLocation + "/temp/DPrj/src/problems/Spam.java";	
+			resourcePath = resourcePath.replace("\\", "/");
 			try {
 				runResourceTestCase("problems/Spam");
 			} catch (RuntimeException x) {
-				assertTrue(x.getMessage().contains(resourcePath));
+				String excepStr= x.getMessage().replace("\\", "/");
+				assertTrue(excepStr.contains(resourcePath));
 			}			
 			assertEquals(
 					resourcePath + "(4): Eggs cannot be resolved to a type",
-					stderr.toString().trim());
+					stderr.toString().replace("\\", "/").trim());
 		} finally {
 			System.setErr(saved);
 		}
