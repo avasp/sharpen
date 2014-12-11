@@ -24,36 +24,40 @@ package sharpen.ui.tests;
 import static org.junit.Assert.*;
 import sharpen.core.*;
 
-//import org.junit.Test;
+import org.junit.Test;
 
 public class ConfigurationTestCase {
 	private Configuration _configuration;
 	
-	public void setUp() {
+	private void setUp() {
 		_configuration = ConfigurationFactory.defaultConfiguration();
 	}
 	
-	//@Test
+	@Test
 	public void testIgnoredAnnotationsByDefault() {
-		
+		setUp();
 		assertTrue(_configuration.isIgnoredAnnotation("java.lang.Override"));
 	}
 	
-	//@Test
+	@Test
 	public void testDefaultMappings() {
+		setUp();
 		assertMappedTypeName("javanese.Foo", "javanese.Foo");
 	}
 
-	//@Test
-	public void testMapNamespace() {		
+	@Test
+	public void testMapNamespace() {
+		setUp();
 		_configuration.mapNamespace("^foo\\.bar", "System.IO");		
 		assertMappedTypeName("foo.bar.Writer", "System.IO.Writer");
 		
 		assertEquals("System.IO", _configuration.mappedNamespace("foo.bar"));
 	}
 	
-	//@Test
-	public void testPascalCaseNamespaces() {
+	@Test
+	public void testPascalCaseNamespaces() 
+	{
+		setUp();
 		_configuration.setNamingStrategy(PascalCaseNamingStrategy.DEFAULT);
 		
 		assertMappedTypeName("foo.bar.Writer", "Foo.Bar.Writer");
