@@ -139,8 +139,8 @@ public abstract class AbstractConversionTestCase  {
 			 return new String(encoded);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			result = result + e.toString();
+			//e.printStackTrace();
+			result = "";
 		}
 		return result;
 	}
@@ -185,8 +185,8 @@ public abstract class AbstractConversionTestCase  {
 			 return new String(encoded);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			result = result + e.toString();
+			//e.printStackTrace();
+			result = "";
 		}
 		return result;
 	}
