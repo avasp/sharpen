@@ -235,7 +235,7 @@ public abstract class AbstractConversionTestCase  {
 
 	private void runBatchConverterTestCaseWithTargetProject(
             Configuration configuration, TestCaseResource... resources) throws IOException, Throwable {
-		String projectName="MPrj";
+		String projectName="mprj";
 		String[] units;
 		if(resources.length> 0){
 			units = createCompilationUnits(projectName,resources); 
@@ -296,7 +296,7 @@ public abstract class AbstractConversionTestCase  {
 	 */
 	private void checkConversionResult(Configuration configuration, String targetFolder, TestCaseResource resource) throws Throwable {
 		
-		String packageName = configuration.getNamespaceMappings(resource.packageName());
+		String packageName = configuration.getNamespaceMappings(resource.packageName()).toLowerCase();
 		if(packageName.isEmpty())
 		{
 			packageName ="src";
