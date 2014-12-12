@@ -235,7 +235,7 @@ public abstract class AbstractConversionTestCase  {
 
 	private void runBatchConverterTestCaseWithTargetProject(
             Configuration configuration, TestCaseResource... resources) throws IOException, Throwable {
-		String projectName="MultipleSource";
+		String projectName="MPrj";
 		String[] units;
 		if(resources.length> 0){
 			units = createCompilationUnits(projectName,resources); 
